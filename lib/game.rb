@@ -58,7 +58,7 @@ class Game
   end
 
   def normalized_letters
-    @letters.map {|letter| normalize_letter(letter)}
+    @letters.map { |letter| normalize_letter(letter) }
   end
 
   # Возвращает true, если игра закончена (проиграна или выиграна)
