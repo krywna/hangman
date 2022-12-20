@@ -19,18 +19,16 @@ class ConsoleInterface
   # Выводит в консоль текущее состояние игры, используя данные из экземпляра
   # класса Game (количество ошибок, сколько осталось попыток и т.д.)
   def print_out
-    puts <<~FRAME
-      Слово: #{word_to_show}
-      #{figure}
-      Ошибки (#{@game.errors_made}): #{errors_to_show}
-      У вас осталось ошибок: #{@game.errors_allowed}
 
-    FRAME
+    puts  ColorizedString["Слово: #{word_to_show}"].colorize(:green).on_blue
+    puts  ColorizedString["#{figure}"].colorize(:red)
+    puts  ColorizedString["Ошибки (#{@game.errors_made}): #{errors_to_show}"].colorize(:red).on_green
+    puts  ColorizedString["У вас осталось ошибок: #{@game.errors_allowed}"].colorize(:green).on_blue
 
     if @game.won?
-      puts "Поздравляем, вы выиграли!"
+      puts ColorizedString["Поздравляем, вы выиграли!"].colorize(:green).on_blue.underline
     elsif @game.lost?
-      puts "Вы проиграли, загаданное слово: #{@game.word}"
+      puts ColorizedString["Вы проиграли, загаданное слово: #{@game.word}"].colorize(:green).on_blue.underline
     end
   end
 
@@ -64,7 +62,7 @@ class ConsoleInterface
   # Получает букву из пользовательского ввода, приводит её к верхнему регистру
   # и возвращает её
   def get_input
-    print "Введите следующую букву: "
+    print ColorizedString["Введите следующую букву: "].colorize(:red)
     gets[0].upcase
   end
 end

@@ -6,9 +6,10 @@ if Gem.win_platform?
     io.set_encoding(Encoding.default_external, Encoding.default_internal)
   end
 end
-
 require_relative "lib/console_interface"
 require_relative "lib/game"
+require "colorize"
+require "colorized_string"
 
 # 1. Поздороваться
 puts "Всем привет!"

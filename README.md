@@ -5,8 +5,14 @@ Hangman game program.
 
 To add new words: open the `data/words.txt`
 
+Before launch once:
+
+```
+bundle install
+```
+
 Console launch command:
 
 ```
-ruby main.rb
+bundle exec ruby main.rb
 ```
