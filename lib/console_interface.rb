@@ -19,7 +19,6 @@ class ConsoleInterface
   # Выводит в консоль текущее состояние игры, используя данные из экземпляра
   # класса Game (количество ошибок, сколько осталось попыток и т.д.)
   def print_out
-
     puts  ColorizedString["Слово: #{word_to_show}"].colorize(:green).on_blue
     puts  ColorizedString["#{figure}"].colorize(:red)
     puts  ColorizedString["Ошибки (#{@game.errors_made}): #{errors_to_show}"].colorize(:red).on_green
